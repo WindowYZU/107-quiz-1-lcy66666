@@ -23,27 +23,6 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-public static void main(String[] args) throws Exception{
-        
-        JFrame frame=new JFrame();
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        frame.setLayout(new FlowLayout());
-        
-        JSlider slider=new JSlider();
-        
-        slider.setMinimum(0);
-        slider.setMaximum(100);
-        slider.setPaintTicks(true);
-        slider.setPaintTrack(true);
-        slider.setPaintLabels(true);
-        slider.setMinorTickSpacing(10);
-        slider.setMajorTickSpacing(20);
-        frame.add(slider);
-    
-        
-        frame.setVisible(true);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +40,12 @@ public static void main(String[] args) throws Exception{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("combobox 裡面放0，10，20，30......100");
 
@@ -106,10 +90,14 @@ public static void main(String[] args) throws Exception{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        String value = (String) jComboBox1.getSelectedItem();
+        jSlider1.setValue(Integer. valueOf(value));
+        
+         
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -139,8 +127,24 @@ public static void main(String[] args) throws Exception{
                 new NewJFrame().setVisible(true);
             }
         });
+        JFrame frame = new JFrame();
+        JSlider slider = new JSlider();
+        slider.setMinimum(0);
+        slider.setMaximum(100);
+        slider.setPaintTicks(true);
+        slider.setPaintTrack(true);
+        slider.setMinorTickSpacing(10);
+        slider.setMajorTickSpacing(10);
+        slider.setPaintLabels(true);
+        frame.add(slider);  
+        frame.setVisible(true);
+        
+        
     }
-
+    /**
+     * @param args the command line arguments
+     */
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
